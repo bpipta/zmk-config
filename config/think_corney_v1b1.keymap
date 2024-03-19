@@ -1,1 +1,1 @@
-#include "boards/shields/think_corney_v1b1.keymap"
+#include "../boards/shields/think_corney_v1b1/think_corney_v1b1.keymap"
