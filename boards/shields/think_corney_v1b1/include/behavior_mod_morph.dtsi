@@ -2,6 +2,81 @@
     behaviors {
 
 	/*
+	 * Symbol
+	 *
+	 * These mod morphs are intented to be used on the symbol layer.
+	 * These morphs attempt to arrange symbols commonly used while
+	 * programming in a logical and easy to type arrangement.
+	 */
+
+	sym_gt_rbrc: sym_gt_rbrc {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp GT>, <&kp RBRC>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	sym_minus_hash: sym_minus_hash {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp HASH>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	sym_tilde_dllr: sym_tilde_dllr {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE>, <&kp DLLR>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	sym_star_prcnt: sym_star_prcnt {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp STAR>, <&kp PRCNT>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	sym_fslh_bslh: sym_fslh_bflsh {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&kp BSLH>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	sym_colon_excl: sym_colon_excl {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COLON>, <&kp EXCL>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	sym_pipe_caret: sym_pipe_caret {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE>, <&kp CARET>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	sym_lt_lbrc: sym_lt_lbrc {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LT>, <&kp LBRC>;
+            mods = <(MOD_RSFT)>;
+	};
+
+
+	sym_qmark_grave: sym_qmark_grave {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>, <&kp GRAVE>;
+            mods = <(MOD_RSFT)>;
+	};
+
+
+	/*
+	 * Numpad
+	 *
 	 * These mod morphs are intented to be used on the numpad layer.
 	 * They combine symbols that are commonly used with numbers in a
 	 * logical arrangement.
