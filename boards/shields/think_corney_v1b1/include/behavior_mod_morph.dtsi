@@ -1,0 +1,66 @@
+/ {
+    behaviors {
+
+	/*
+	 * These mod morphs are intented to be used on the numpad layer.
+	 * They combine symbols that are commonly used with numbers in a
+	 * logical arrangement.
+	*/
+	
+	np_plus_minus: np_plus_minus {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp PLUS>, <&kp MINUS>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	np_mult_div: np_multiply_divide {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp STAR>, <&kp SLASH>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	np_under_comma: np_under_comma {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp UNDER>, <&kp COMMA>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	np_equal: np_equal {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL>, <&none>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	np_lpar_lbkt: np_lpar_lbkt {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR>, <&kp LBKT>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	np_rpar_rbkt: np_rpar_rbkt {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RPAR>, <&kp RBKT>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	np_gt_lt: np_gt_lt {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp GT>, <&kp LT>;
+            mods = <(MOD_RSFT)>;
+	};
+
+	np_dot_caret: np_dot_caret {
+	    compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp CARET>;
+            mods = <(MOD_RSFT)>;
+	};
+    };
+};
