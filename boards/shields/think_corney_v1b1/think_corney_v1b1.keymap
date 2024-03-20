@@ -5,6 +5,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 
+#include "include/behavior_mod_morph.dtsi"
+
 #define ALPHA 0
 #define MEDIA 1
 #define NAV 2
@@ -93,17 +95,32 @@
       >;
     };
 
+      /*
+       * This layer is supposed to function similar to a numpad.
+       * Mod morphs are used here to consolidate symbols that are
+       * commonly used with numbers onto this one layer. The numbers
+       * are not intented to be used with shift to produce any
+       * symbols so that this layer maintains a clear purpose and
+       * logic arrangement. Therefore, you will see some symbols
+       * that could be acheived with S-<Number> will have a
+       * dedicated mod morph instead.
+       *
+       * The dedicated keypad keys are not used here because they
+       * are less common and cause undesired behavior in some
+       * applications.
+       */
+
     Num_layer {
       display-name = "Keypad";
       bindings = <
 // ╭──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────╮    ╭──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────╮
-     &none              &kp KP_LPAR        &kp KP_N7          &kp KP_N8          &kp KP_N9          &kp KP_RPAR             &none              &none              &none              &none              &none              &none
+     &none              &np_lpar_lbkt      &kp N7             &kp N8             &kp N9             &np_rpar_rbkt           &none              &none              &none              &none              &none              &none
 // ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
-     &none              &kp KP_PLUS        &kp KP_N4          &kp KP_N5          &kp KP_N6          &kp KP_MULTIPLY         &none              &kp RCTRL          &kp RSHFT          &kp RALT           &kp RGUI           &none
+     &none              &np_plus_minus     &kp N4             &kp N5             &kp N6             &np_mult_div            &none              &kp RCTRL          &kp RSHFT          &kp RALT           &kp RGUI           &none
 // ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
-     &none              &kp KP_MINUS       &kp KP_N1          &kp KP_N2          &kp KP_N3          &kp KP_DIVIDE           &none              &none              &none              &none              &none              &none
+     &none              &np_gt_lt          &kp N1             &kp N2             &kp N3             &np_dot_caret           &none              &none              &none              &none              &none              &none
 // ╰──────────────────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┴──────────────────┴──────────────────╯
-                                                              &kp KP_DOT         &kp KP_N0          &kp KP_EQUAL            &none              &trans             &none
+                                                              &np_under_comma    &kp N0             &np_equal               &none              &trans             &none
 //                                                          ╰──────────────────┴──────────────────┴──────────────────╯    ╰──────────────────┴──────────────────┴──────────────────╯
       >;
     };
