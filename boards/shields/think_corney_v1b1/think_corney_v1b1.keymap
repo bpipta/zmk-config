@@ -80,17 +80,66 @@
       >;
     };
 
+      /*
+       * This symbol layer has been designed mainly with the idea
+       * of programming in mind. It tries to make comon symbols
+       * used while programming easy to type while also arranging
+       * the keys in a way that make typing common bigrams easy
+       * as well. I followed the idea of typing inwards for the
+       * bigrams. I also preferred having two symbols on a
+       * homerow key and using shift versus have the symbols on
+       * two separate keys if one of them was not in the homerow.
+       *
+       *
+       * It is centered around '=' since it is very
+       * common across various languages and is a component in
+       * many bigrams (and trigrams):
+       *
+       *  +=, -=, *=, /=, %=, &=, |=, ^=, !=, ==, <=, =>, :=
+       *  >>=, <<=, >==, >==, !==
+       *
+       * Both the right and left angle brackets also see much use
+       * so they are on the top layer as well.
+       *
+       * All the brackets and braces see lots of use in syntax
+       * heavy languages. I would reasonably say that the
+       * parentheses see the most universally use, so they are
+       * assigned to the thumb keys. I decided to include the
+       * braces ({, }) over the brackets ([, ]) as the primary
+       * key (i.e. when not holding shift) because I think they
+       * see more use than the brackets.
+       *
+       * I made the choice to include colon on the home row as
+       * well since it sees decent use, specifically in Python
+       * where many of the other symbols are not used, but also
+       * in certain declarations like structs or json.
+       *
+       * A few other noteworthy details:
+       * - The underscore is where space is on the alpha layer
+       * to assit in typing snakecase
+       * - You'll notice some 'symbols' are missing from this
+       * layer. Things like single/double quote, period, and
+       * comma. These are located on the alpa layer as they are
+       * usually combined with letters even in the context of
+       * programming.
+       * There are some other bigrams I have tried to include
+       * like -> and ~/
+       *
+       * Dislaimer: This is based on my reasoning and I have
+       * not done any analysis to arrive at this layout.
+       */
+
     Sym_layer {
       display-name = "Symbol";
       bindings = <
 // ╭──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────╮    ╭──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────╮
-     &none              &none              &none              &none              &none              &none                   &none              &none              &none              &none              &none              &none
+     &none              &kp LBKT           &kp AMPS           &sym_star_prcnt    &kp SEMI           &kp RBKT                &none              &none              &none              &none              &none              &none
 // ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
-     &none              &none              &none              &none              &none              &none                   &none              &kp RCTRL          &kp RSHFT          &kp RALT           &kp RGUI           &none
+     &none              &sym_lt_lbrc       &sym_colon_excl    &kp EQUAL          &sym_minus_hash    &sym_gt_rbrc            &none              &kp RCTRL          &kp RSHFT          &kp RALT           &kp RGUI           &none
 // ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
-     &none              &none              &none              &none              &none              &none                   &none              &none              &none              &none              &none              &none
+     &none              &sym_qmark_grave   &sym_pipe_caret    &sym_fslh_bslh     &sym_tilde_dllr    &kp AT                  &none              &none              &none              &none              &none              &none
 // ╰──────────────────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┴──────────────────┴──────────────────╯
-                                                              &none              &none              &none                   &trans             &none              &none
+                                                              &kp LPAR           &kp UNDER          &kp RPAR                &trans             &none              &none
 //                                                          ╰──────────────────┴──────────────────┴──────────────────╯    ╰──────────────────┴──────────────────┴──────────────────╯
       >;
     };
