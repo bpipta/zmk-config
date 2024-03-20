@@ -50,6 +50,10 @@
       >;
     };
 
+      /*
+       * For navigating tabs in browsers, one can use ~ALT + GUI + LEFT/RIGHT~
+       */
+
     Nav_layer {
       display-name = "Navigation";
       bindings = <
