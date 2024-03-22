@@ -118,3 +118,51 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
 		};
 	};
 };
+
+&uart0 {
+	status = "disabled";
+	compatible = "nordic,nrf-uarte";
+
+	// PS/2 uses a clock pin to syncronize data transmissions. UART on the
+	// other hand uses a pre-defined frequency (baud rate).
+	//
+	// Fortunately, one of the available baud rates is very close to the
+	// frequency used in IBM/Lenovo trackpoints.
+	//
+	// You can find other configurable baud rates here:
+	// https://docs.zephyrproject.org/latest/build/dts/api/bindings/serial/nordic,nrf-uarte.html
+	//
+	// But most likely you won't need to adjust this.
+	//
+	// You can measure the frequency of your mouse/TP using a $5 logic
+	// analyzer from AliExpress.
+	//
+	// Actual frequency of PS/2 trackpoint: 67us
+	// Correspondent baud rate: 14,925
+	//
+	// Closest available baud rate in zephyr: 14,400
+	// Correspondent cycle length: 69.44 microseconds
+	//
+	// Calculations:
+	//
+	// Convert cycle length in microseconds into baud:
+	// 1 / PS2_CYCLE_LENGTH * 1000000 =  BAUD
+	// 1 / 67 * 1000000 = 14,925 BAUD
+	//
+	// Convert baud into cycle length:
+	// 1 / BAUD * 1000000 = CYCLE_LEN (in microseconds)
+	// 1 / 14400 * 1000000 = 69.44
+	//
+	current-speed = <14400>;
+	pinctrl-0 = <&uart0_ps2_default>;
+	pinctrl-1 = <&uart0_ps2_off>;
+
+	pinctrl-names = "default", "sleep";
+
+    uart_ps2: uart_ps2 {
+        status="disabled";
+        compatible = "uart-ps2";
+        scl-gpios = MOUSE_PS2_PIN_SCL_PRO_MICRO;
+        sda-gpios = MOUSE_PS2_PIN_SDA_PRO_MICRO;
+    };
+};
