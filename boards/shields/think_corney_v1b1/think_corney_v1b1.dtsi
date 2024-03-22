@@ -166,3 +166,29 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
         sda-gpios = MOUSE_PS2_PIN_SDA_PRO_MICRO;
     };
 };
+
+/ {
+    mouse_ps2: mouse_ps2 {
+		status = "disabled";
+        compatible = "zmk,input-mouse-ps2";
+
+		// This will be overriden in your `xxx_right.overlay file`.
+        // ps2-device = <&gpio_ps2>;
+        ps2-device = <&uart_ps2>;
+
+#ifdef MOUSE_PS2_PIN_RST_PRO_MICRO
+        rst-gpios = MOUSE_PS2_PIN_RST_PRO_MICRO;
+#endif
+    };
+
+    mouse_ps2_input_listener: mouse_ps2_input_listener {
+        compatible = "zmk,input-listener";
+	    status = "disabled";
+
+        device = <&mouse_ps2>;
+
+		// Some of the available settings depend on the keymap. So they
+		// are adjusted in...
+		// ../../../includes/trackpoint.dtsi
+    };
+};
