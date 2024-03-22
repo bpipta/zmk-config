@@ -21,27 +21,18 @@
 
 // Enable PS/2 drivers on this side of the keyboard.
 // MUST be the central.
-//
-// Comment out the following define to use the GPIO driver instead of UART
-// (this is not recommended unless you can't use the UART driver for whatever
-// reason)
-#define MOUSE_PS2_DRIVER_UART
 
-#ifdef MOUSE_PS2_DRIVER_UART
-    &uart0 {
-        status = "okay";
-    };
-    &uart_ps2 {
-        status = "okay";
-    };
-#endif
+&uart0 {
+    status = "okay";
+};
+&uart_ps2 {
+    status = "okay";
+};
 
 &mouse_ps2 {
-	status = "okay";
+    status = "okay";
 
-#ifdef MOUSE_PS2_DRIVER_UART
-	ps2-device = <&uart_ps2>;
-#endif
+    ps2-device = <&uart_ps2>;
 };
 
 &mouse_ps2_input_listener {
