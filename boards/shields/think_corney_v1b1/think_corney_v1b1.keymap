@@ -18,13 +18,9 @@
 
 #include "include/behavior_mod_morph.dtsi"
 
-#define MOUSE_TP_FLAG
-
 #ifdef MOUSE_TP_FLAG
 #include "include/behavior_mouse_tp.dtsi"
 #endif
-
-#define MOUSE_KEYS_FLAG
 
 #ifdef MOUSE_KEYS_FLAG
 #include "include/behavior_mouse_keys.dtsi"
