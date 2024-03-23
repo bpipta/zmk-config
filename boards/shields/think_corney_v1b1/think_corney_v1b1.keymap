@@ -16,6 +16,9 @@
 #define LBOOT 8
 #define RBOOT 9
 
+#define MOUSE_KEYS_FLAG
+#define MOUSE_TP_FLAG
+
 #include "include/behavior_mod_morph.dtsi"
 
 #ifdef MOUSE_TP_FLAG
