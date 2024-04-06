@@ -9,8 +9,8 @@
 #define MEDIA 1
 #define NAV 2
 #define MOUSE 3
-#define SYMBOL 4
-#define NUM 5
+#define NUM 4
+#define SYMBOL 5
 #define FUNC 6
 #define CONFIG 7
 #define LBOOT 8
@@ -44,7 +44,7 @@
 // ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
      &mo CONFIG         &kp Z              &kp X              &kp C              &kp D              &kp V                   &kp K              &kp H              &kp COMMA          &kp PERIOD         &kp SLASH          &caps_word
 // ╰──────────────────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┴──────────────────┴──────────────────╯
-                                                              &lt MEDIA ESC      &lt NAV SPACE      &lt MOUSE TAB           &lt SYMBOL RET     &lt NUM BSPC       &lt FUNC DEL
+                                                              &lt MEDIA ESC      &lt NAV SPACE      &lt MOUSE TAB           &lt NUM RET        &lt SYMBOL BSPC    &lt FUNC DEL
 //                                                          ╰──────────────────┴──────────────────┴──────────────────╯    ╰──────────────────┴──────────────────┴──────────────────╯
       >;
     };
@@ -114,9 +114,40 @@
       >;
     };
 #endif
+
+      /*
+       * This layer is supposed to function similar to a numpad.
+       * Mod morphs are used here to consolidate symbols that are
+       * commonly used with numbers onto this one layer. The numbers
+       * are not intended to be used with shift to produce any
+       * symbols so that this layer maintains a clear purpose and
+       * logic arrangement. Therefore, you will see some symbols
+       * that could be achieved with S-<Number> will have a
+       * dedicated mod morph instead.
+       *
+       * The dedicated keypad keys are not used here because they
+       * are less common and cause undesired behavior in some
+       * applications.
+       */
+
+    Num_layer {
+      display-name = "Keypad";
+      bindings = <
+// ╭──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────╮    ╭──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────╮
+     &none              &np_lpar_lbkt      &kp N7             &kp N8             &kp N9             &np_rpar_rbkt           &none              &none              &none              &none              &none              &none
+// ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
+     &none              &np_plus_minus     &kp N4             &kp N5             &kp N6             &np_mult_div            &none              &kp RCTRL          &kp RSHFT          &kp RALT           &kp RGUI           &none
+// ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
+     &none              &np_gt_lt          &kp N1             &kp N2             &kp N3             &np_dot_caret           &none              &none              &none              &none              &none              &none
+// ╰──────────────────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┴──────────────────┴──────────────────╯
+                                                              &np_under_comma    &kp N0             &np_equal               &none              &trans             &none
+//                                                          ╰──────────────────┴──────────────────┴──────────────────╯    ╰──────────────────┴──────────────────┴──────────────────╯
+      >;
+    };
+
       /*
        * This symbol layer has been designed mainly with the idea
-       * of programming in mind. It tries to make comon symbols
+       * of programming in mind. It tries to make common symbols
        * used while programming easy to type while also arranging
        * the keys in a way that make typing common bigrams easy
        * as well. I followed the idea of typing inwards for the
@@ -150,16 +181,16 @@
        *
        * A few other noteworthy details:
        * - The underscore is where space is on the alpha layer
-       * to assit in typing snakecase
+       * to assist in typing snakecase
        * - You'll notice some 'symbols' are missing from this
        * layer. Things like single/double quote, period, and
-       * comma. These are located on the alpa layer as they are
+       * comma. These are located on the alpha layer as they are
        * usually combined with letters even in the context of
        * programming.
        * There are some other bigrams I have tried to include
        * like -> and ~/
        *
-       * Dislaimer: This is based on my reasoning and I have
+       * Disclaimer: This is based on my reasoning and I have
        * not done any analysis to arrive at this layout.
        */
 
@@ -174,36 +205,6 @@
      &none              &sym_qmark_grave   &sym_pipe_caret    &sym_fslh_bslh     &sym_tilde_dllr    &kp AT                  &none              &none              &none              &none              &none              &none
 // ╰──────────────────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┴──────────────────┴──────────────────╯
                                                               &kp LPAR           &kp UNDER          &kp RPAR                &trans             &none              &none
-//                                                          ╰──────────────────┴──────────────────┴──────────────────╯    ╰──────────────────┴──────────────────┴──────────────────╯
-      >;
-    };
-
-      /*
-       * This layer is supposed to function similar to a numpad.
-       * Mod morphs are used here to consolidate symbols that are
-       * commonly used with numbers onto this one layer. The numbers
-       * are not intented to be used with shift to produce any
-       * symbols so that this layer maintains a clear purpose and
-       * logic arrangement. Therefore, you will see some symbols
-       * that could be acheived with S-<Number> will have a
-       * dedicated mod morph instead.
-       *
-       * The dedicated keypad keys are not used here because they
-       * are less common and cause undesired behavior in some
-       * applications.
-       */
-
-    Num_layer {
-      display-name = "Keypad";
-      bindings = <
-// ╭──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────╮    ╭──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────┬──────────────────╮
-     &none              &np_lpar_lbkt      &kp N7             &kp N8             &kp N9             &np_rpar_rbkt           &none              &none              &none              &none              &none              &none
-// ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
-     &none              &np_plus_minus     &kp N4             &kp N5             &kp N6             &np_mult_div            &none              &kp RCTRL          &kp RSHFT          &kp RALT           &kp RGUI           &none
-// ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┼──────────────────┤
-     &none              &np_gt_lt          &kp N1             &kp N2             &kp N3             &np_dot_caret           &none              &none              &none              &none              &none              &none
-// ╰──────────────────┴──────────────────┴──────────────────┴──────────────────┼──────────────────┼──────────────────┤    ├──────────────────┼──────────────────┼──────────────────┼──────────────────┴──────────────────┴──────────────────╯
-                                                              &np_under_comma    &kp N0             &np_equal               &none              &trans             &none
 //                                                          ╰──────────────────┴──────────────────┴──────────────────╯    ╰──────────────────┴──────────────────┴──────────────────╯
       >;
     };
