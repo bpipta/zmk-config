@@ -96,10 +96,10 @@
             mods = <(MOD_RSFT)>;
 	};
 
-	np_under_comma: np_under_comma {
+	np_under_caret: np_under_caret {
 	    compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp UNDER>, <&kp COMMA>;
+            bindings = <&kp UNDER>, <&kp CARET>;
             mods = <(MOD_RSFT)>;
 	};
 
@@ -131,10 +131,10 @@
             mods = <(MOD_RSFT)>;
 	};
 
-	np_dot_caret: np_dot_caret {
+	np_dot_comma: np_dot_comma {
 	    compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp CARET>;
+            bindings = <&kp DOT>, <&kp COMMA>;
             mods = <(MOD_RSFT)>;
 	};
     };
