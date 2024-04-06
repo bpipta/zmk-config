@@ -9,10 +9,10 @@
 	 * programming in a logical and easy to type arrangement.
 	 */
 
-	sym_rbrc_gt: sym_rbrc_gt {
+	sym_gt_rbkt: sym_gt_rbkt {
 	    compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp RBRC>, <&kp GT>;
+            bindings = <&kp GT>, <&kp RBKT>;
             mods = <(MOD_RSFT)>;
 	};
 
@@ -58,13 +58,12 @@
             mods = <(MOD_RSFT)>;
 	};
 
-	sym_lbrc_lt: sym_lbrc_lt {
+	sym_lt_lbkt: sym_lt_lbkt {
 	    compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LBRC>, <&kp LT>;
+            bindings = <&kp LT>, <&kp LBKT>;
             mods = <(MOD_RSFT)>;
 	};
-
 
 	sym_qmark_grave: sym_qmark_grave {
 	    compatible = "zmk,behavior-mod-morph";
