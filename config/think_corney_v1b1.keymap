@@ -24,7 +24,7 @@
   #include <behaviors/mouse_keys.dtsi>
 #endif
 
-#ifdef HAS_MOUSE_TPXS
+#ifdef HAS_MOUSE_TP
   #include "include/mouse_tp.dtsi"
 #endif
 
