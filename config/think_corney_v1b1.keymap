@@ -21,7 +21,7 @@
 
 #ifdef HAS_MOUSE_KEYS
   #include <dt-bindings/zmk/mouse.h>
-  #include <behaviours/mouse_keys.dtsi>
+  #include <behaviors/mouse_keys.dtsi>
 #endif
 
 #ifdef HAS_MOUSE_TPXS
